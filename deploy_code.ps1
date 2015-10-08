@@ -71,7 +71,7 @@ $deploymentresult += Write-Output "`nMonitoring number of connections"
 while ($CleanCounter -ne 0)
     {
         $DirtyCounter = Get-Counter "\web service($SiteName)\current connections"
-        $CleanCounter = $DirtyCounter.Readings.Substring(60) -as [int]
+        $CleanCounter = $DirtyCounter.Readings.Substring($wordstoskip) -as [int]
         Start-Sleep -s 5
         $deploymentresult += Write-Output "Number of connections: $CleanCounter"
         $timeelapsedmonitoring += 5
