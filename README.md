@@ -17,6 +17,7 @@ Here are the defaults for parameters that this scripts accepts:
 
 Steps taken by this script:
 i. Take parameters from user, if nothing entered for a variable then take defaults
+
 ii. Declare SendEmail function. You can define the to & from email addresses here
 iii. If old & new build folders are not specified by the user then quit the script and send an email to the user
 iv. Copy web.config & client_secret.json from old builds folder to new builds folder
