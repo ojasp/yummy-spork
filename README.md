@@ -7,7 +7,7 @@ i. Copies The Build folder from integration to production server
 
 ii. Invokes remote script(deploy-code.ps1) on production server with defined parameters
 
-#deploy-code.ps1:
+#deploy_code.ps1:
 Here are the defaults for parameters that this scripts accepts: 
 [string]$SiteName = "TestOjas"
 [string]$WebsitePath = "http://localhost:8090/"
