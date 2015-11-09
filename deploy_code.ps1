@@ -4,22 +4,16 @@ param(
     [string]$SiteName = "TestOjas",                           #<---------Name of the website in IIS
     [string]$WebsitePath = "http://localhost:8090/",          #<---------Port number to check if website is online
     [string]$AppPoolName = "Test--Ojas",                      #<---------Name of the Application Pool
-    [string]$public="", #"_PublishedWebsites\Public"          #<---------Relative path pf public website; relative to build folder as asked below (old_build_folder/new_build_folder)
-    [string]$PSEmailServer = "onewire-web06.ny.fsvs.com",     #<---------This variable sets SMTP server. It's a system variable.
-    [string]$old_build_folder = "",                           #<---------This variable saved the old build folder that is entered by user
-    [string]$new_build_folder = ""                            #<---------This variable saved the new build folder that is entered by user
+    [string]$public="", #"publicwebsites\Test--Ojas"          #<---------Relative path pf public website; relative to build folder as asked below (old_build_folder/new_build_folder)
+    [string]$PSEmailServer = "smtp.google.com",               #<---------This variable sets SMTP server. It's a system variable.
+    [string]$old_build_folder = "",                           #<---------This variable saves the old build folder that is entered by user
+    [string]$new_build_folder = ""                            #<---------This variable saves the new build folder that is entered by user
 )
 
 $deploymentresult = @()                                       #<---------This variable saves the output of commands & is added as body in the email
 $Webconfigcopyerror=@()                                       #<---------This variable saves the error(if any) when copying web.config
 $jsoncopyerror=@()                                            #<---------This variable saves the error(if any) when copying client_secret.json
-#$SiteName = "TestOjas"                                        #<---------Name of the website in IIS
-#$WebsitePath = "http://localhost:8090/"                       #<---------Port number to check if website is online
-#$AppPoolName = "Test--Ojas"                                   #<---------Name of the Application Pool
-$build_folder="C:\inetpub\wwwroot\"                           #<---------Not needed?
-#$public="" #"_PublishedWebsites\Public"                       #<---------Relative path pf public website; relative to build folder as asked below (old_build_folder/new_build_folder)
 $globalerror = 0                                              #<---------This variable tracks if error(s) occured during the script
-$PSEmailServer = "onewire-web06.ny.fsvs.com"                  #<---------This variable sets SMTP server. It's a system variable.
 $timeelapsedmonitoring = 0                                    #<---------This variable is used to see how many seconds have elapsed since the start of monitoring for number of current active connections
 $buildcopyerror=@()                                           #<---------This variable is used to track if an error occured when changing physical directory
 $wordstoskip = 0                                              #<---------This variable is used to filter out all the other details when pulling number of current connections counters
@@ -50,7 +44,7 @@ $deploymentresult += Write-Output "New_build_folder: $new_build_folder`n"
 Function SendEmail($deploymentresult)
     {
     $deploymentresult = Out-String -InputObject $deploymentresult
-    Send-MailMessage -To "ojas@onewire.com" -From "ojas@onewire.com" -Subject "Production Deployment result" -Body $deploymentresult
+    Send-MailMessage -To "ojas@o.com" -From "ojas@o.com" -Subject "Production Deployment result" -Body $deploymentresult
     }
 
 #
