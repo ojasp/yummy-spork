@@ -1,7 +1,7 @@
 # yummy-spork
 There are two scripts as a part of this reporsitory, Copy_to_remote_&_invoke_deploy_script.ps1 copies the files from your integration environment to production & deploy-code.ps1 performs a series of tasks to perform a rolling deployment. You run  Copy_to_remote_&_invoke_deploy_script.ps1 from your machine & the script assumes that you already have deploy-code.ps1 saved on the production VM.
 
-#Copy_to_remote_&_invoke_deploy_script.ps1:
+#copy_to_remote_&_invoke_deploy_script.ps1:
 
 i. Copies The Build folder from integration to production server
 
