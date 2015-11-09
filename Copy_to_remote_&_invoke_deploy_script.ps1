@@ -25,7 +25,7 @@ if($copyerror.Count -eq 0)
             #>
         Invoke-Command -ComputerName 192.168.2.2 `
             {`
-            &"C:\Deploy_Scripts\Automate Production Deployment.ps1" `
+            &"C:\Deploy_Scripts\deploy_code.ps1" `
             -old_build_folder "C:\inetpub\wwwroot" `
             -new_build_folder "C:\inetpub\wwwroot\Test" `
             }
